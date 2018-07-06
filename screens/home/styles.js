@@ -10,6 +10,12 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
   },
+  headerContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 40,
+  },
   itemContainer: {
     flex: 1,
     flexDirection: 'column',

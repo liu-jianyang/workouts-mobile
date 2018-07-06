@@ -4,10 +4,14 @@ import {
   View,
 } from 'react-native';
 import IconListRow from '$components/IconListRow';
+import Touchable from '$components/Touchable';
 import StyledText from '$components/StyledText';
 import styles from './styles';
 
 export default class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Home',
+  };
 
   _keyExtractor = (item, index) => item.id;
 
@@ -21,20 +25,28 @@ export default class HomeScreen extends React.Component {
     });
   };
 
+  _onPressHeader = () => {
+    console.log('press header: ');
+  }
+
   _renderItem = ({item}) => (
     <IconListRow
       id={item.id}
       onPress={this._onPressItem}>
       <View style={styles.itemContainer}>
-        <StyledText style={styles.mainText}>MainText</StyledText>
-        <StyledText style={styles.subText}>SubText</StyledText>
+        <StyledText style={styles.mainText}>{item.mainText}</StyledText>
+        <StyledText style={styles.subText}>{item.subText}</StyledText>
       </View>
     </IconListRow>
   );
 
   _renderHeader = () => (
-
-  )
+    <Touchable onPress={this._onPressHeader}>
+      <View style={styles.headerContainer}>
+        <StyledText style={styles.mainText}>Create Workout</StyledText>
+      </View>
+    </Touchable>
+  );
 
   render() {
     return (

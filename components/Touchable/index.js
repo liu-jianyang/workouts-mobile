@@ -3,6 +3,7 @@ import {
     TouchableHighlight,
     TouchableNativeFeedback,
     Platform,
+    View,
 } from 'react-native';
 import styles from './styles';
 
